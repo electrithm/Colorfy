@@ -6,7 +6,7 @@
     android:id="@+id/background">
     <Button
         android:id="@+id/MyButton"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Hello" />
 </LinearLayout>
