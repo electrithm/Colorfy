@@ -10,13 +10,18 @@ using Android.Graphics;
 
 namespace Colorfy
 {
+    //set some info
     [Activity(Label = "Colorfy", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+
+        //create background
         private LinearLayout background;
-        int count = 1;
+
+        //create randomizer
         Random rnd = new Random();
 
+        //when the app loads
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -24,14 +29,13 @@ namespace Colorfy
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            //get background
             background = FindViewById<LinearLayout>(Resource.Id.background);
 
-            button.Click += delegate
+            //if the background is clicked
+            background.Click += delegate
             {
-                button.Text = string.Format("{0} clicks!", count++);
+                //change the color by creating a random rgb value
                 background.SetBackgroundColor(Color.Rgb(rnd.Next(0,255),rnd.Next(0,255),rnd.Next(0,255)));
             };
         }
